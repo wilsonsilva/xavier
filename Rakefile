@@ -2,6 +2,7 @@
 
 require 'bundler/gem_tasks'
 require 'rspec/core/rake_task'
+require 'yaml'
 require 'yard/rake/yardoc_task'
 require 'yard-junk/rake'
 require 'yardstick/rake/measurement'
