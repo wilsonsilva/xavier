@@ -1,0 +1,41 @@
+require: rubocop-rspec
+
+AllCops:
+  DisplayCopNames: true
+
+# ---------------------- Layout -----------------------
+
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false
+
+# ---------------------- Metrics ----------------------
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*_spec.rb
+    - xavier.gemspec
+
+Metrics/LineLength:
+  Max: 120
+
+# ----------------------- RSpec -----------------------
+
+RSpec/NestedGroups:
+  Enabled: false
+
+# ----------------------- Style -----------------------
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - spec/**/*.rb
+
+Style/ClassVars:
+  Exclude:
+    - spec/support/*.rb
+
+# ----------------------- Naming ----------------------
+
+Naming/UncommunicativeMethodParamName:
+  Exclude:
+    - lib/xavier/mutation_strategies/*.rb
+    - lib/xavier/mutator.rb
