@@ -1,6 +1,7 @@
 # Xavier
 
 [![Gem Version](https://badge.fury.io/rb/xavier.svg)](http://badge.fury.io/rb/xavier)
+[![Build Status](https://travis-ci.org/wilsonsilva/xavier.svg?branch=master)](https://travis-ci.org/wilsonsilva/xavier)
 
 Xavier tracks and reverts state mutations (changes in `instance`, `class`, and `class instance` variables).
 
