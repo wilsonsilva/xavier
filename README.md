@@ -1,5 +1,7 @@
 # Xavier
 
+[![Gem Version](https://badge.fury.io/rb/xavier.svg)](http://badge.fury.io/rb/xavier)
+
 Xavier tracks and reverts state mutations (changes in `instance`, `class`, and `class instance` variables).
 
 ## Installation
