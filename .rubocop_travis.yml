@@ -1,0 +1,8 @@
+# This is only used in Travis. It refuses to read the frozen string comment in version.rb
+
+inherit_from:
+ - .rubocop.yml
+
+Style/MutableConstant:
+  Exclude:
+    - lib/xavier/version.rb

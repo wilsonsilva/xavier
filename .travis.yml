@@ -1,5 +1,9 @@
 sudo: false
 language: ruby
 rvm:
-  - 2.4.2
-before_install: gem install bundler -v 1.16.0
+  - 2.5.0
+script:
+  - bundle exec rake spec
+  - bundle exec rubocop --config .rubocop_travis.yml
+  - bundle exec rake yardstick_measure
+  - bundle exec rake yard:junk
