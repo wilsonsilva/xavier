@@ -1,5 +1,7 @@
 sudo: false
 language: ruby
+env:
+  - COVERAGE=true
 rvm:
   - 2.5.0
 before_script:
