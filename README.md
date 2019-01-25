@@ -2,6 +2,8 @@
 
 [![Gem Version](https://badge.fury.io/rb/xavier.svg)](http://badge.fury.io/rb/xavier)
 [![Build Status](https://travis-ci.org/wilsonsilva/xavier.svg?branch=master)](https://travis-ci.org/wilsonsilva/xavier)
+[![Maintainability](https://api.codeclimate.com/v1/badges/7473cd7cdcf12b4bb453/maintainability)](https://codeclimate.com/github/wilsonsilva/xavier/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/7473cd7cdcf12b4bb453/test_coverage)](https://codeclimate.com/github/wilsonsilva/xavier/test_coverage)
 [![Inline docs](http://inch-ci.org/github/wilsonsilva/xavier.svg?branch=master)](http://inch-ci.org/github/wilsonsilva/xavier)
 
 Xavier tracks and reverts state mutations (changes in `instance`, `class`, and `class instance` variables).
