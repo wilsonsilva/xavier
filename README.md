@@ -6,7 +6,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/7473cd7cdcf12b4bb453/test_coverage)](https://codeclimate.com/github/wilsonsilva/xavier/test_coverage)
 [![Inline docs](http://inch-ci.org/github/wilsonsilva/xavier.svg?branch=master)](http://inch-ci.org/github/wilsonsilva/xavier)
 
-Xavier tracks and reverts state mutations (changes in `instance`, `class`, and `class instance` variables).
+Tracks and reverts objects internal state mutations (changes in `instance`, `class`, and `class instance` variables).
 
 ## Motivation
 
@@ -92,12 +92,19 @@ evil_singleton.mutated? # => false
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests.
-You can also run:
-* `bin/console` for an interactive prompt that will allow you to experiment.
-* `rake rubocop` to lint the code.
-* `rake verify_measurements` to generate a report of the Yard documentation.
-* `rake yard:junk` to lint the Yard documentation. 
+After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive
+prompt that will allow you to experiment. The health and maintainability of the codebase is ensured through a set of
+Rake tasks to test, lint and audit the gem for security vulnerabilities and documentation:
+
+```
+rake rubocop               # Lint the codebase with RuboCop
+rake rubocop:auto_correct  # Auto-correct RuboCop offenses
+rake spec                  # Run RSpec code examples
+rake verify_measurements   # Verify that yardstick coverage is at least 100%
+rake yard                  # Generate YARD Documentation
+rake yard:junk             # Check the junk in your YARD Documentation
+rake yardstick_measure     # Measure docs in lib/**/*.rb with yardstick
+```
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the
 version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version,
