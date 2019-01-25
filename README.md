@@ -8,6 +8,14 @@
 
 Tracks and reverts objects internal state mutations (changes in `instance`, `class`, and `class instance` variables).
 
+## Table of contents
+
+* [Motivation](#motivation)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Development](#development)
+* [Contributing](#contributing)
+
 ## Motivation
 
 Global state can easily lead to interference between test cases and cause random failures. These issues are called
