@@ -61,6 +61,7 @@ module Xavier
     # @return [Boolean] Whether the given class is the class, superclass or modules of +self+.
     def is_a?(clazz)
       return true if clazz == ::Class
+
       self.class == clazz
     end
 
