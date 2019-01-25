@@ -5,6 +5,16 @@
 
 Xavier tracks and reverts state mutations (changes in `instance`, `class`, and `class instance` variables).
 
+## Motivation
+
+Global state can easily lead to interference between test cases and cause random failures. These issues are called
+__mystery guests__, because they effect the behavior of the code being tested however the test method fails to show
+that relationship.
+
+In X-men, one of Xavier's goals is to protect society from antagonistic mutants.
+
+In Ruby, one of Xavier's goals is to protect test cases from failures caused by mystery guests.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -41,12 +51,12 @@ class EvilSingleton
 end
 
 Xavier.observe(EvilSingleton) do
-  EvilSingleton.mutated? # => false
+  EvilSingleton.mutated? # => false. This is the starting state of the class.
   EvilSingleton.mutate
-  EvilSingleton.mutated? # => true
+  EvilSingleton.mutated? # => true. This is the mutation that we will revert.
 end
 
-EvilSingleton.mutated? # => false
+EvilSingleton.mutated? # => false. All the internal state is reverted.
 ```
 
 Observing an instance:
@@ -92,4 +102,4 @@ push git commits and tags, and push the `.gem` file to [rubygems.org](https://ru
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/xavier.
+Bug reports and pull requests are welcome on GitHub at https://github.com/wilsonsilva/xavier.
