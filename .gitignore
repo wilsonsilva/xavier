@@ -10,3 +10,6 @@
 
 # rspec failure tracking
 .rspec_status
+
+# Not recommented for gems
+/Gemfile.lock
