@@ -34,13 +34,12 @@ Tracks and reverts objects internal state mutations (changes in `instance`, `cla
 
 ## Motivation
 
+In X-men, one of Xavier's goals is to protect society from antagonistic mutants. In Ruby, Xavier's goal is to protect
+test cases from failures caused by global state mutations.
+
 Global state can easily lead to interference between test cases and cause random failures. These issues are called
-__mystery guests__, because they effect the behavior of the code being tested however the test method fails to show
+__mystery guests__, because they affect the behavior of the code being tested however the test method fails to show
 that relationship.
-
-In X-men, one of Xavier's goals is to protect society from antagonistic mutants.
-
-In Ruby, one of Xavier's goals is to protect test cases from failures caused by mystery guests.
 
 ## Installation
 
@@ -63,7 +62,7 @@ Or install it yourself as:
 Observing a class:
 
 ```ruby
-class EvilSingleton
+class Human
   @@mutated = false
   @mutated = false
 
@@ -77,7 +76,7 @@ class EvilSingleton
   end
 end
 
-Xavier.observe(EvilSingleton) do
+Xavier.observe(Human) do
   EvilSingleton.mutated? # => false. This is the starting state of the class.
   EvilSingleton.mutate
   EvilSingleton.mutated? # => true. This is the mutation that we will revert.
@@ -89,7 +88,7 @@ EvilSingleton.mutated? # => false. All the internal state is reverted.
 Observing an instance:
 
 ```ruby
-class InstanceSingleton
+class Human
   def initialize
     @mutated = false
   end
