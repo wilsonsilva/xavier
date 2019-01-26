@@ -1,10 +1,26 @@
-# Xavier
+<p align="center">
+  <img src="https://github.com/wilsonsilva/xavier/raw/master/logo.png">
+</p>
 
-[![Gem Version](https://badge.fury.io/rb/xavier.svg)](http://badge.fury.io/rb/xavier)
-[![Build Status](https://travis-ci.org/wilsonsilva/xavier.svg?branch=master)](https://travis-ci.org/wilsonsilva/xavier)
-[![Maintainability](https://api.codeclimate.com/v1/badges/7473cd7cdcf12b4bb453/maintainability)](https://codeclimate.com/github/wilsonsilva/xavier/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/7473cd7cdcf12b4bb453/test_coverage)](https://codeclimate.com/github/wilsonsilva/xavier/test_coverage)
-[![Inline docs](http://inch-ci.org/github/wilsonsilva/xavier.svg?branch=master)](http://inch-ci.org/github/wilsonsilva/xavier)
+<h1 align="center">Xavier</h1>
+
+<p align="center">
+  <a href="http://badge.fury.io/rb/xavier">
+    <img src="https://badge.fury.io/rb/xavier.svg" alt="Gem Version">
+  </a>
+  <a href="https://travis-ci.org/wilsonsilva/xavier">
+    <img src="https://travis-ci.org/wilsonsilva/xavier.svg?branch=master" alt="Build Status">
+  </a>
+  <a href="https://codeclimate.com/github/wilsonsilva/xavier/maintainability">
+    <img src="https://api.codeclimate.com/v1/badges/7473cd7cdcf12b4bb453/maintainability" alt="Maintainability">
+  </a>
+  <a href="https://codeclimate.com/github/wilsonsilva/xavier/test_coverage">
+    <img src="https://api.codeclimate.com/v1/badges/7473cd7cdcf12b4bb453/test_coverage" alt="Test Coverage">
+  </a>
+  <a href="http://inch-ci.org/github/wilsonsilva/xavier">
+    <img src="http://inch-ci.org/github/wilsonsilva/xavier.svg?branch=master" alt="Inline docs">
+  </a>
+</p>
 
 Tracks and reverts objects internal state mutations (changes in `instance`, `class`, and `class instance` variables).
 
