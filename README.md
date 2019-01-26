@@ -29,6 +29,8 @@ Tracks and reverts objects internal state mutations (changes in `instance`, `cla
 * [Motivation](#motivation)
 * [Installation](#installation)
 * [Usage](#usage)
+  * [TL;DR](#tldr)
+  * [With object instances](#with-object-instances)
 * [Development](#development)
 * [Contributing](#contributing)
 
@@ -59,59 +61,93 @@ Or install it yourself as:
 
 ## Usage
 
-Observing a class:
+### TL;DR
+
+Call `Xavier.observe` with an object (observable) and a block. Modify the state of the observable inside the block.
+When the block finishes executing, all the state mutations on the observable are reverted:
 
 ```ruby
-class Human
-  @@mutated = false
-  @mutated = false
-
-  def self.mutate
-    @@mutated = true
-    @mutated = true
-  end
-
-  def self.mutated?
-    @@mutated && @mutated
-  end
+Xavier.observe(observable) do
+  # mutate the state of observable inside of this block
 end
 
-Xavier.observe(Human) do
-  EvilSingleton.mutated? # => false. This is the starting state of the class.
-  EvilSingleton.mutate
-  EvilSingleton.mutated? # => true. This is the mutation that we will revert.
-end
-
-EvilSingleton.mutated? # => false. All the internal state is reverted.
+# all mutations on the observable are reverted outside of the block
 ```
 
-Observing an instance:
+### With object instances
+
+Consider [Jean Grey](https://en.wikipedia.org/wiki/Jean_Grey), a caring, nurturing human:
 
 ```ruby
-class Human
+class JeanGrey
+  attr_reader :traits
+  
   def initialize
-    @mutated = false
-  end
-
-  def mutate
-    @mutated = true
-  end
-
-  def mutated?
-    @mutated
+    @traits = ['caring', 'nurturing']
   end
 end
 
-evil_singleton = InstanceSingleton.new
+jean_grey = JeanGrey.new
+jean_grey.traits # => ['caring', 'nurturing']
+````
 
-Xavier.observe(evil_singleton) do
-  evil_singleton.mutated? # => false
-  evil_singleton.mutate
-  evil_singleton.mutated? # => true
+Jean's mutant power of telepathy first manifest when her best friend is hit by a car and killed. The event leaves her
+comatose:
+
+```ruby
+class JeanGrey
+  attr_reader :powers, :traits
+  
+  def initialize
+    @powers = []
+    @traits = ['caring', 'nurturing']
+  end
+  
+  def witness_friend_die!
+    powers << 'telepathy'
+    traits << 'comatose'
+  end
 end
 
-evil_singleton.mutated? # => false
-```
+jean_grey = JeanGrey.new
+jean_grey.powers # => []
+jean_grey.traits # => ['caring', 'nurturing']
+jean_grey.witness_friend_die!
+jean_grey.powers # => ['telepathy']
+jean_grey.traits # => ['caring', 'nurturing', 'comatose']
+````
+
+She is brought back to consciousness when her parents seek the help of powerful mutant telepath, Charles Xavier. Xavier
+blocks her telepathy until she is old enough to be able to control it:
+
+```ruby
+class JeanGrey
+  attr_reader :powers, :traits
+  
+  def initialize
+    @powers = []
+    @traits = ['caring', 'nurturing']
+  end
+  
+  def witness_friend_die!
+    powers << 'telepathy'
+    traits << 'comatose'
+  end
+end
+
+jean_grey = JeanGrey.new
+jean_grey.powers # => []
+jean_grey.traits # => ['caring', 'nurturing']
+
+Xavier.observe(jean_grey) do
+  jean_grey.witness_friend_die!
+  jean_grey.powers # => ['telepathy']
+  jean_grey.traits # => ['caring', 'nurturing', 'comatose']
+end
+
+jean_grey.powers # => []
+jean_grey.traits # => ['caring', 'nurturing']
+````
 
 ## Development
 
